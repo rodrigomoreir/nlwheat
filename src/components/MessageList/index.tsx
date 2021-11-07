@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import {
-    ScrollView
+    ScrollView,
+    View,
+    FlatList
 } from 'react-native';
 import { api } from '../../services/api';
 import { io } from 'socket.io-client';
@@ -45,12 +47,26 @@ export function MessageList() {
     }, [])
 
     return (
-        <ScrollView
+        // CÓDIGO FEITO NA NLW
+        // <ScrollView
+        //     style={styles.container}
+        //     contentContainerStyle={styles.content}
+        //     keyboardShouldPersistTaps="never"
+        // >
+        //     {currentMessages.map(message => {
+        //         console.log(message)
+        //         return <Message key={message?.id} data={message} />
+        //     })}
+        // </ScrollView>
+
+        <FlatList
+            data={currentMessages}
+            keyExtractor={item => item?.id}
             style={styles.container}
             contentContainerStyle={styles.content}
-            keyboardShouldPersistTaps="never"
-        >
-            {currentMessages.map((message) => <Message key={message.id} data={message} />)}
-        </ScrollView>
+            renderItem={(message) => (
+                <Message data={message?.item} />
+            )}
+        />
     );
 }

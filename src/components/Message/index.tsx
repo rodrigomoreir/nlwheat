@@ -82,10 +82,10 @@ export function Message({ data }: Props) {
             transition={{ type: 'timing', duration: 700 }}
             style={styles.container}
         >
-            <Text style={styles.message}>{data.text}</Text>
+            <Text style={styles.message}>{data?.text}</Text>
             <View style={styles.footer}>
-                <UserPhoto imageUri={data.user.avatar_url} sizes='SMALL' />
-                <Text style={styles.userName}>{data.user.name}</Text>
+                <UserPhoto imageUri={data?.user.avatar_url} sizes='SMALL' />
+                <Text style={styles.userName}>{data?.user.name}</Text>
             </View>
         </MotiView>
 
