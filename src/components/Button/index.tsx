@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { AntDesign } from '@expo/vector-icons'
 
-import { styles } from './styles';
+import { styles } from './styles'
 
 type Props = TouchableOpacityProps & {
   title: string;

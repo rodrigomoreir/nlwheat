@@ -10,20 +10,20 @@ import { useAuth } from '../../hooks/auth';
 import { styles } from './styles';
 
 const Home = () => {
-    const { user } = useAuth()
-    return (
-        <KeyboardAvoidingView
-            style={{ flex: 1 }}
-            behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        >
-            <View style={styles.container}>
-                <Header />
-                <MessageList />
+  const { user } = useAuth()
+  return (
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+    >
+      <View style={styles.container}>
+        <Header />
+        <MessageList />
 
-                {user ? <SendMessageForm /> : <SignInBox />}
-            </View>
-        </KeyboardAvoidingView>
-    )
+        {user ? <SendMessageForm /> : <SignInBox />}
+      </View>
+    </KeyboardAvoidingView>
+  )
 }
 
 export default Home;
